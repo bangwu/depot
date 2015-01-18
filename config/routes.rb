@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'store/add_to_cart'
+
   get 'store/index'
   get 'store' => 'store#index'
+  post 'store/add_to_cart'
 
   resources :products
+  resources :sessions, only:[:create, :new, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
